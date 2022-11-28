@@ -222,11 +222,6 @@ const menuItems = [
     listPath: '/robot'
   },
   {
-    listIcon: <FavoriteIcon />,
-    listText: 'Favourites',
-    listPath: '/Favourites'
-  },
-  {
     listIcon: <LogoutIcon onClick={logout1} />,
     listText: 'Logout',
     listPath: '/'

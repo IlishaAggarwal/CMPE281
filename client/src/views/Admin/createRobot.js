@@ -22,7 +22,7 @@ export default class CreateRobot extends Component {
 
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/robots/')
+    axios.get('http://107.21.135.25:4000/robots/')
       .then(response => {
         console.log(response.data)
         this.setState({ robots: response.data })
@@ -61,13 +61,13 @@ export default class CreateRobot extends Component {
 
     console.log(robot);
 
-    return axios.post('http://localhost:4000/robots/add', robot)
+    return axios.post('http://107.21.135.25:4000/robots/add', robot)
       .then(res => window.location.reload(true));
 
     
   }
   deleteRobot(id){
-    axios.delete('http://localhost:4000/robots/'+id)
+    axios.delete('http://107.21.135.25:4000/robots/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

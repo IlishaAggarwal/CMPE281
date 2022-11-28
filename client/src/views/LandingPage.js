@@ -9,7 +9,7 @@ import wavebg from '../images/bg.jpeg';
 import backendServer from './../Config'
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Alert } from 'react-bootstrap';
-import {useSelector } from 'react-redux'
+
 import { useDispatch } from 'react-redux';
 import logged from '../actions';
 

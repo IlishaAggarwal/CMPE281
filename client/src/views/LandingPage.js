@@ -33,7 +33,11 @@ const LandingPage = () => {
       sessionStorage.setItem('city',response.data.City);
 
       dispatch(logged(response.data[0].CustomerName, response.data[0].EmailId ));
-      history.push('/RestaurantView')
+
+      if(response.data[0].UserRole === 0)
+        history.push('/RestaurantView')
+      else
+        history.push('/AdminView')
     })
       .catch((error) => {
         setAlert("Invalid User Name or Password")

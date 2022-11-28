@@ -23,6 +23,7 @@ import RestaurantProfile from "./views/Profile/RestaurantProfile";
 import CustomerCheckOut from "./views/Dashboards/CustomerCheckOut";
 import AddressForm from "./views/Dashboards/AddressForm";
 import RestaurantCustomerView from './views/Profile/RestaurantCustomerView'
+import AdminView from "./views/Admin/AdminView";
 
 const App = () => {
     return (
@@ -37,6 +38,7 @@ const App = () => {
             
             <Route exact path="/UserProfile" component={UserProfile}></Route>
             <Route exact path="/RestaurantView" component={RestaurantView}></Route>
+            <Route exact path="/AdminView" component={AdminView}></Route>
             <Route exact path="/RestaurantMenu" component={RestaurantMenu}></Route>
             <Route  path="/RestaurantDashboard" component={RestaurantDashboard}></Route>
             <Route path="/AddDish" component = {AddDish}></Route>

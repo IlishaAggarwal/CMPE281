@@ -9,7 +9,6 @@ import { useState, useHistory } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import backendServer from '../../Config';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 export default function AddressForm(props) {
 

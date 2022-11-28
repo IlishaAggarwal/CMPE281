@@ -24,6 +24,10 @@ import CustomerCheckOut from "./views/Dashboards/CustomerCheckOut";
 import AddressForm from "./views/Dashboards/AddressForm";
 import RestaurantCustomerView from './views/Profile/RestaurantCustomerView'
 import AdminView from "./views/Admin/AdminView";
+import DeliveriesList from "./views/Admin/deliveries";
+import EditDelivery from "./views/Admin/editDelivery";
+import CreateDeliveryLog from "./views/Admin/createDeliveryLog";
+import CreateRobot from "./views/Admin/createRobot";
 
 const App = () => {
     return (
@@ -38,7 +42,7 @@ const App = () => {
             
             <Route exact path="/UserProfile" component={UserProfile}></Route>
             <Route exact path="/RestaurantView" component={RestaurantView}></Route>
-            <Route exact path="/AdminView" component={AdminView}></Route>
+            {/* <Route exact path="/AdminView" component={AdminView}></Route> */}
             <Route exact path="/RestaurantMenu" component={RestaurantMenu}></Route>
             <Route  path="/RestaurantDashboard" component={RestaurantDashboard}></Route>
             <Route path="/AddDish" component = {AddDish}></Route>
@@ -51,7 +55,10 @@ const App = () => {
             <Route path="/AddressForm" component = {AddressForm}></Route>
             <Route path="/RestaurantCustomerView" component = {RestaurantCustomerView}></Route>
 
-
+            <Route path="/AdminView" exact component={DeliveriesList} />
+            <Route path="/edit/:id" component={EditDelivery} />
+            <Route path="/create" component={CreateDeliveryLog} />
+            <Route path="/robot" component={CreateRobot} />
         </div>
     );
 }

@@ -5,13 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-
+import MenuIcon from '@material-ui/icons/Menu';
 //import logo from '../images/uber-eats.svg';
 //import newlogo from '../images/UberEATS.png';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
+import { Link as RouterLink } from 'react-router-dom';
 import LandingPage from './LandingPage';
 
+import { DropdownMenu } from 'react-bootstrap-dropdown-menu';
 
 import {
   ListItemIcon,
@@ -241,7 +242,7 @@ const styleimg = {
 }
 
 const stylebg = {
-  background: '#d4e6ab'
+  background: '#6f42c1'
 }
 
 const Navbar = (props) => {
@@ -394,6 +395,7 @@ const Navbar = (props) => {
     <Box component='div' style={stylebg}
       className={classes.menuSliderContainer}
       onClick={toggleSlider(slider, false)}>
+
       {/* <Avatar className={classes.avatar} src={avatar} alt='' /> */}
       {/* <img src={logo} width={'120'} height={'80'} style={styleimg} alt='' /> */}
       <h4>Robot Cloud Food Delivery Application</h4>
@@ -450,12 +452,11 @@ const Navbar = (props) => {
     <>
       <div className={classes.root}>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static" style={{ backgroundColor:'darkblue'}}>
-            <Toolbar style={{ display: 'flex', width: '100%' ,backgroundColor:'darkblue'}}>
+          <AppBar position="static" >
+            <Toolbar style={{ display: 'flex', width: '100%' }}>
               <MobileeRightMenuSlider open={state.left}
                 onClose={toggleSlider('left', false)}
-                anchor='left' 
-                > {sideList('left')} </MobileeRightMenuSlider> <
+                anchor='left' > {sideList('left')} </MobileeRightMenuSlider> <
                   IconButton onClick={toggleSlider('left', true)} >
                 <DehazeIcon style={
                   { color: 'white' }} />
@@ -637,7 +638,7 @@ const Navbar = (props) => {
             />
           </Search> */}
 
-              {/* <Box sx={{ flexGrow: 1 }} />
+              <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
                 <FormControlLabel
@@ -667,7 +668,7 @@ const Navbar = (props) => {
                   </Badge>
 
                 </IconButton>
-              </Box> */}
+              </Box>
 
               <a href="/UserProfile"> <AccountCircle ></AccountCircle></a>
               {/* </a> */}

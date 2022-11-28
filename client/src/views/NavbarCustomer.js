@@ -395,7 +395,6 @@ const Navbar = (props) => {
     <Box component='div' style={stylebg}
       className={classes.menuSliderContainer}
       onClick={toggleSlider(slider, false)}>
-
       {/* <Avatar className={classes.avatar} src={avatar} alt='' /> */}
       {/* <img src={logo} width={'120'} height={'80'} style={styleimg} alt='' /> */}
       <h4>Robot Cloud Food Delivery Application</h4>
@@ -452,11 +451,12 @@ const Navbar = (props) => {
     <>
       <div className={classes.root}>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static" >
-            <Toolbar style={{ display: 'flex', width: '100%' }}>
+          <AppBar position="static" style={{ backgroundColor:'darkblue'}}>
+            <Toolbar style={{ display: 'flex', width: '100%' ,backgroundColor:'darkblue'}}>
               <MobileeRightMenuSlider open={state.left}
                 onClose={toggleSlider('left', false)}
-                anchor='left' > {sideList('left')} </MobileeRightMenuSlider> <
+                anchor='left' 
+                > {sideList('left')} </MobileeRightMenuSlider> <
                   IconButton onClick={toggleSlider('left', true)} >
                 <DehazeIcon style={
                   { color: 'white' }} />

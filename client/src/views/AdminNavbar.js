@@ -452,7 +452,7 @@ const AdminNavbar = (props) => {
     <>
       <div className={classes.root}>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static" >
+          <AppBar position="static" style={{ backgroundColor:'darkblue'}} >
             <Toolbar style={{ display: 'flex', width: '100%' }}>
               <MobileeRightMenuSlider open={state.left}
                 onClose={toggleSlider('left', false)}

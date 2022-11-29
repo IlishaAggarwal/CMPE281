@@ -25,7 +25,7 @@ export default class DeliveriesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/deliveries/')
+    axios.get('http://107.21.135.25:4000/deliveries/')
       .then(response => {
         this.setState({ deliveries: response.data })
       })
@@ -35,7 +35,7 @@ export default class DeliveriesList extends Component {
   }
 
   deleteDelivery(id) {
-    axios.delete('http://localhost:4000/deliveries/'+id)
+    axios.delete('http://107.21.135.25:4000/deliveries/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

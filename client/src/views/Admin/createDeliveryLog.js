@@ -19,7 +19,7 @@ export default class CreateDeliveryLog extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/robots/')
+    axios.get('http://107.21.135.25:4000/robots/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -76,7 +76,7 @@ export default class CreateDeliveryLog extends Component {
 
     console.log(delivery);
 
-    axios.post('http://localhost:4000/deliveries/getLog', delivery)
+    axios.post('http://107.21.135.25:4000/deliveries/getLog', delivery)
       .then(res => this.setState({
         deliveries :res.data
       }));

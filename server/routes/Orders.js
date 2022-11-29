@@ -3,6 +3,8 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt")
 const con = require("../connections/Dbconnection")
 const { v4: uuidv4 } = require('uuid');
+let Robot = require('../models/robot.model');
+let Delivery = require('../models/delivery.model');
 
 router.get("/Orders/:id", function (req, res) {
     const CustomerId = req.params.id;
@@ -47,7 +49,7 @@ router.post("/restaurant/Orders/:id1/:id2", function (req, res) {
 })
 
 
-router.post("/orders/customer/:id", function (req, resp) {
+router.post("/orders/customer/:id", async function (req, resp) {
     let orderId = uuidv4();
     let customerId = req.params.id;
     let cart = req.body.cart;
@@ -60,6 +62,31 @@ router.post("/orders/customer/:id", function (req, resp) {
     currentTimeStamp = new Date();
 
     const orderQuery = "INSERT INTO orders (OrderId, CustomerId, RestaurantId, OrderStatus, DeliveryType, CreatedAt, LastUpdatedTime, TotalAmount, DeliveryAddressId) VALUES (?,?,?,?,?,?,?,?,?)";
+
+    const robots = await Robot.find();
+    var availableRobot;
+    for(var robot of robots)
+    {
+        if(robot.isAvailable)
+            availableRobot = robot.robotname;
+
+    }
+    const robotname = availableRobot;
+//   const description = req.body.description;
+    const deliveryStatus = 'OPEN'
+  const duration = 0;
+  const date = 'November 29,2022';
+
+  const newDelivery = new Delivery({
+    robotname,
+    duration,
+    deliveryStatus,
+    date,
+  });
+
+  await newDelivery.save();
+
+    console.log('ROBOTS: ', robots);
     con.query(orderQuery, [orderId,customerId,restaurantId,"Order Received",deliverytype,currentTimeStamp,currentTimeStamp,Total, addressId], (err, results, fields) => {
         if (err) {
             console.log(err)

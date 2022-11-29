@@ -17,7 +17,7 @@ const Dishes = require("./routes/Dishes")
 const Favourites = require("./routes/Favourites")
 const Orders = require("./routes/Orders")
 const DeliveryAddress = require("./routes/DeliveryAddress")
-
+var mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json())
@@ -28,7 +28,12 @@ app.use(cors());
 var corsOptions = {
     origin: "http://44.211.76.239/:3000"
   };
-
+  const uri = "mongodb+srv://mayank9623:database1234@cluster0.ouzfsbw.mongodb.net/?retryWrites=true&w=majority";
+  mongoose.connect(uri);
+  const connection = mongoose.connection;
+  connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+  })
   // con.connect(function(err) {
   //   if (err) {
   //     return console.error('asdasd: ' + err.message);

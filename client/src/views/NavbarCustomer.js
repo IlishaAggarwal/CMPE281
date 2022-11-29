@@ -242,7 +242,7 @@ const styleimg = {
 }
 
 const stylebg = {
-  background: '#6f42c1'
+  background: '#d4e6ab'
 }
 
 const Navbar = (props) => {
@@ -452,7 +452,7 @@ const Navbar = (props) => {
     <>
       <div className={classes.root}>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static" >
+          <AppBar position="static" style={{ backgroundColor:'darkblue'}}>
             <Toolbar style={{ display: 'flex', width: '100%' }}>
               <MobileeRightMenuSlider open={state.left}
                 onClose={toggleSlider('left', false)}

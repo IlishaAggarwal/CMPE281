@@ -47,7 +47,6 @@ export default class CreateDeliveryLog extends Component {
     return this.state.deliveries.map(delivery => {
       return (<tr>
         <td>{delivery.robotname}</td>
-        <td>{delivery.description}</td>
         <td>{delivery.date}</td>
           <td>{delivery.deliveryStatus}</td>
       
@@ -132,7 +131,6 @@ export default class CreateDeliveryLog extends Component {
           <thead className="thead-light">
             <tr style={{color:'coral', fontSize:'2rem'}}>
               <th>Robotname</th>
-              <th>Description</th>
               <th>Date</th>
               <th>Status</th>
             </tr>

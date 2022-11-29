@@ -6,7 +6,6 @@ import AdminNavbar from '../AdminNavbar';
 const Delivery = props => (
   <tr>
     <td>{props.delivery.robotname}</td>
-    <td>{props.delivery.description}</td>
     <td>{props.delivery.duration}</td>
     <td>{props.delivery.date}</td>
     {/* <td></td> */}

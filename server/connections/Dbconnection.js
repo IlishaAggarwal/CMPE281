@@ -5,7 +5,7 @@ function dbConnectionProvider() {
     if (!db) {
         db = mysql.createPool({
             connectionLimit: 10,
-            host: "robocloud.coj2wm12re7c.us-east-2.rds.amazonaws.com",
+            host: "robocloud.cvpqigltlhwm.us-west-1.rds.amazonaws.com",
             port: 3306,
             user: "admin",
             password: "admin1234",

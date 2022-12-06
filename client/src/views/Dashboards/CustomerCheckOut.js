@@ -78,7 +78,7 @@ if(!localStorage.getItem("CustomerID")){
             })
             .catch(error => {
                 cleanUpTransaction();
-                alert("error occured while saving the address");
+                // alert("error occured while saving the address");
             })
     }
 

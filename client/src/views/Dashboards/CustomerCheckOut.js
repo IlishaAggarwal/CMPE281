@@ -64,13 +64,13 @@ if(!localStorage.getItem("CustomerID")){
         sessionStorage.removeItem('mode');
     }
     
-    const postOrder = (customerId, addressId) => {
+    const postOrder = (customerId, addressId, addr1) => {
         let mode = sessionStorage.getItem('mode');
         console.log("port order cart", cart)
         let restaurantId = sessionStorage.getItem('currentRestaurant');
         let TotalAmt = sessionStorage.getItem("TotalAmt")
         console.log("total amount", TotalAmt)
-        axios.post(`${backendServer}/orders/customer/${customerId}`, { addressId: addressId, cart: cart, deliverytype: mode, restaurantId: restaurantId , TotalAmt: TotalAmt})
+        axios.post(`${backendServer}/orders/customer/${customerId}`, { addressId: addressId, address: addr1, cart: cart, deliverytype: mode, restaurantId: restaurantId , TotalAmt: TotalAmt})
             .then(response => {
                 console.log("post order", response.data)
                 setPostedOrder(response.data);
@@ -120,7 +120,7 @@ if(!localStorage.getItem("CustomerID")){
             } else {
                 addressId = address.AddressId;
             }
-            postOrder(customerId, addressId);
+            postOrder(customerId, addressId, addr1+" , "+city+" , "+state+" , "+pincode+" , "+country);
         }
     };
             

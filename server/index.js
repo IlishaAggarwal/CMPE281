@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 //app.use("/",imagestore)
 var corsOptions = {
-    origin: "http://3.87.229.161//:3000"
+    origin: "http://34.203.243.32//:3000"
   };
   const uri = "mongodb+srv://mayank9623:database1234@cluster0.ouzfsbw.mongodb.net/?retryWrites=true&w=majority";
   mongoose.connect(uri);

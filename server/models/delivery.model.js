@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const deliverySchema = new Schema({
   robotname: { type: String },
+  orderId: {type: String},
+  robottype:{type:String, required: true},
+  deliveryAddressId: {type: String, required: true},
+  address: { type: String },
   description: { type: String},
   duration: { type: Number, required: true },
   date :{type:String,required: true},

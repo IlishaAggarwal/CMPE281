@@ -67,20 +67,28 @@ router.post("/orders/customer/:id", async function (req, resp) {
     var availableRobot;
     for(var robot of robots)
     {
-        if(robot.isAvailable)
-            availableRobot = robot.robotname;
-
+        if(robot.isAvailable){
+            availableRobot = robot;
+            break;
+        }
     }
-    const robotname = availableRobot;
+    //Query to update availability of robot
+    
+    const robotname = availableRobot.robotname;
+    await Robot.updateOne({_id: availableRobot._id},{$set:{isAvailable: false}});
 //   const description = req.body.description;
     const deliveryStatus = 'OPEN'
   const duration = 0;
-  const date = 'November 29,2022';
+  const date = 'December 6,2022';
 
   const newDelivery = new Delivery({
     robotname,
+    orderId: orderId,
+    robottype: availableRobot.robottype,
     duration,
     deliveryStatus,
+    deliveryAddressId: addressId,
+    address: req.body.address,
     date,
   });
 
@@ -128,6 +136,17 @@ router.get("/orders/customer/:id", function (req, res) {
 });
 
 router.get("/orders/:id/items", function (req, res) {
+    const orderId = req.params.id;
+    const query = "SELECT * from orderdetails as o INNER JOIN dishes as d on d.DishId = o.DishId where o.OrderId = ?";
+    //console.log(req);
+    con.query(query, [orderId], (err, results, fields) => {
+        console.log(err);
+        res.status(200).send(results);
+    });
+});
+
+
+router.get("/OrderById/:id", function (req, res) {
     const orderId = req.params.id;
     const query = "SELECT * from orderdetails as o INNER JOIN dishes as d on d.DishId = o.DishId where o.OrderId = ?";
     //console.log(req);

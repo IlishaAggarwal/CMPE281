@@ -28,6 +28,7 @@ import DeliveriesList from "./views/Admin/deliveries";
 import EditDelivery from "./views/Admin/editDelivery";
 import CreateDeliveryLog from "./views/Admin/createDeliveryLog";
 import CreateRobot from "./views/Admin/createRobot";
+import RobotDetails from "./views/Admin/RobotDetails";
 
 const App = () => {
     return (
@@ -58,7 +59,9 @@ const App = () => {
             <Route path="/AdminView" exact component={DeliveriesList} />
             <Route path="/edit/:id" component={EditDelivery} />
             <Route path="/create" component={CreateDeliveryLog} />
-            <Route path="/robot" component={CreateRobot} />
+            <Route exact path="/robot/:robotName" component={RobotDetails} />
+            <Route exact path="/robot" component={CreateRobot} />
+            
         </div>
     );
 }

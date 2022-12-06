@@ -24,7 +24,7 @@ export default class EditDelivery extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://107.21.135.25:4000/deliveries/'+this.props.match.params.id)
+    axios.get('http://18.206.173.78:4000/deliveries/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           robotname: response.data.robotname,
@@ -37,7 +37,7 @@ export default class EditDelivery extends Component {
         console.log(error);
       })
 
-    axios.get('http://107.21.135.25:4000/robots/')
+    axios.get('http://18.206.173.78:4000/robots/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
